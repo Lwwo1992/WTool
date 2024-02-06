@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "emptydataset-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Xiaoye220/EmptyDataSet-Swift.git",
+      "state" : {
+        "revision" : "ffaa10404b3c7582532887adc7a0f8558f656673",
+        "version" : "5.0.2"
+      }
+    }
+  ],
+  "version" : 2
+}

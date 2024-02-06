@@ -11,11 +11,17 @@ let package = Package(
             name: "WTool",
             targets: ["WTool"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/Xiaoye220/EmptyDataSet-Swift.git",
+                 .upToNextMajor(from: "5.0.0")),
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "WTool"),
+            name: "WTool",
+        dependencies: 
+                ["EmptyDataSet-Swift"]),
         .testTarget(
             name: "WToolTests",
             dependencies: ["WTool"]),
