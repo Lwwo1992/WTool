@@ -17,7 +17,7 @@ enum DCProgressHUDStatus {
     case progress
 }
 
-class HUD: NSObject {
+public class HUD: NSObject {
     /// 纯文字提示
     static func showTipMessage(_ msg: String?) {
         showWithStatus(hudStatus: .onlyText, text: msg, progress: 0)

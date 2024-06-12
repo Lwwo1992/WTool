@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Button: UIButton {
+public class Button: UIButton {
     var tapAction: (() -> Void)?
     var tapActionHandler: ((_ sender: Button) -> Void)?
 

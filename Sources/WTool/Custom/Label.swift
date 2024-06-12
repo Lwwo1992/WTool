@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Label: UILabel {
+public class Label: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         textAlignment = .left

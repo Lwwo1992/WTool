@@ -8,7 +8,7 @@
 import EmptyDataSet_Swift
 import UIKit
 
-extension UIScrollView {
+public extension UIScrollView {
     private enum AssociatedKeys {
         static var key: Void?
     }
@@ -25,7 +25,7 @@ extension UIScrollView {
     }
 }
 
-class EmptyView: EmptyDataSetSource, EmptyDataSetDelegate {
+public class EmptyView: EmptyDataSetSource, EmptyDataSetDelegate {
     var title: String?
     var titleColor = UIColor.black
     var titleFont = UIFont.systemFont(ofSize: 16)
@@ -37,7 +37,7 @@ class EmptyView: EmptyDataSetSource, EmptyDataSetDelegate {
         self.title = title
     }
 
-    func title(forEmptyDataSet _: UIScrollView) -> NSAttributedString? {
+    public func title(forEmptyDataSet _: UIScrollView) -> NSAttributedString? {
         let placeholserAttributes = [NSAttributedString.Key.foregroundColor: titleColor,
                                      NSAttributedString.Key.font: titleFont]
         if isShowTitle {
@@ -47,21 +47,21 @@ class EmptyView: EmptyDataSetSource, EmptyDataSetDelegate {
         }
     }
 
-    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+    public func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let placeholserAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
                                      NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]
         return NSAttributedString(string: subTitle ?? "", attributes: placeholserAttributes)
     }
 
-    func image(forEmptyDataSet _: UIScrollView) -> UIImage? {
+    public func image(forEmptyDataSet _: UIScrollView) -> UIImage? {
         image
     }
 
-    func verticalOffset(forEmptyDataSet _: UIScrollView) -> CGFloat {
+    public func verticalOffset(forEmptyDataSet _: UIScrollView) -> CGFloat {
         0
     }
 
-    func emptyDataSetShouldDisplay(_: UIScrollView) -> Bool {
+    public func emptyDataSetShouldDisplay(_: UIScrollView) -> Bool {
         true
     }
 }
