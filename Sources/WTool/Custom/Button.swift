@@ -5,7 +5,7 @@
 //  Created by Lww on 2024/6/12.
 //
 
-import UIKit
+import Foundation
 
 class Button: UIButton {
     var tapAction: (() -> Void)?
