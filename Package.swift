@@ -17,6 +17,10 @@ let package = Package(
         .package(url: "https://github.com/SVProgressHUD/SVProgressHUD.git",
                  .upToNextMajor(from: "2.0.0")),
         .package(url: "https://github.com/hackiftekhar/IQKeyboardManager.git", .upToNextMajor(from: "7.0.0")),
+        .package(url: "https://github.com/devxoul/Then", .upToNextMajor(from: "3.0.0")),
+        .package(url: "https://github.com/Tencent/wcdb", .upToNextMajor(from: "1.0.0")),
+        .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.7.1")),
+        .package(url: "https://github.com/QMUI/LookinServer/", .upToNextMajor(from: "1.2.8")),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
