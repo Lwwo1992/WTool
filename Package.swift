@@ -14,6 +14,9 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/Xiaoye220/EmptyDataSet-Swift.git",
                  .upToNextMajor(from: "5.0.0")),
+        .package(url: "https://github.com/SVProgressHUD/SVProgressHUD.git",
+                 .upToNextMajor(from: "2.0.0")),
+        .package(url: "https://github.com/hackiftekhar/IQKeyboardManager.git", .upToNextMajor(from: "7.0.0")),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
