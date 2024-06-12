@@ -1,7 +1,6 @@
 
-
-import SVProgressHUD
 import UIKit
+import SVProgressHUD
 
 enum DCProgressHUDStatus {
     /// 成功

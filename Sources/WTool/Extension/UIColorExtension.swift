@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 public extension UIColor {
     convenience init(red: Int, green: Int, blue: Int, a: CGFloat = 1.0) {
@@ -28,8 +29,10 @@ public extension UIColor {
     }
 }
 
-extension Color {
-    convenience init(hex: UInt, alpha: Double = 1) {
+#if canImport(SwiftUI) && os(iOS)
+@available(iOS 13.0, *)
+public extension Color {
+    init(hex: UInt, alpha: Double = 1) {
         self.init(
             .sRGB,
             red: Double((hex >> 16) & 0xFF) / 255,
@@ -39,3 +42,4 @@ extension Color {
         )
     }
 }
+#endif

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Button: UIButton {
     var tapAction: (() -> Void)?

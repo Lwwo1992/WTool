@@ -12,8 +12,7 @@ let package = Package(
             targets: ["WTool"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Xiaoye220/EmptyDataSet-Swift.git",
-                 .upToNextMajor(from: "5.0.0")),
+        .package(url: "https://github.com/Xiaoye220/EmptyDataSet-Swift.git", .upToNextMajor(from: "5.0.0")),
         .package(url: "https://github.com/SVProgressHUD/SVProgressHUD.git", .upToNextMajor(from: "2.3.0")),
         .package(url: "https://github.com/hackiftekhar/IQKeyboardManager.git", .upToNextMajor(from: "7.0.0")),
         .package(url: "https://github.com/devxoul/Then", .upToNextMajor(from: "3.0.0")),
@@ -27,7 +26,7 @@ let package = Package(
         .target(
             name: "WTool",
         dependencies: 
-                ["EmptyDataSet-Swift"]),
+                ["EmptyDataSet-Swift", "SVProgressHUD"]),
         .testTarget(
             name: "WToolTests",
             dependencies: ["WTool"]),

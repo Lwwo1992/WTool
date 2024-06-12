@@ -13,8 +13,8 @@ import UIKit
     @objc optional func textViewDidChange(_ textView: UITextView)
 }
 
-class TextView: UITextView {
-    override var text: String! {
+public class TextView: UITextView {
+    public override var text: String! {
         didSet {
             placeholderLabel.isHidden = !text.isEmpty
         }
@@ -68,7 +68,7 @@ class TextView: UITextView {
 }
 
 extension TextView: UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
+    public func textViewDidChange(_ textView: UITextView) {
         placeholderLabel.isHidden = !text.isEmpty
         if let maxLength = maxLength {
             if text.count > maxLength {
@@ -80,7 +80,7 @@ extension TextView: UITextViewDelegate {
         myDelegate?.textViewDidChange?(textView)
     }
 
-    func textViewDidEndEditing(_ textView: UITextView) {
+    public func textViewDidEndEditing(_ textView: UITextView) {
         myDelegate?.textViewDidEndEditing?(textView)
     }
 }
