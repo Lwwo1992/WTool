@@ -19,40 +19,40 @@ enum DCProgressHUDStatus {
 
 public class HUD: NSObject {
     /// 纯文字提示
-    static func showTipMessage(_ msg: String?) {
+    public static func showTipMessage(_ msg: String?) {
         showWithStatus(hudStatus: .onlyText, text: msg, progress: 0)
     }
 
     /// 带！图片的提示
-    static func showInfoMsg(_ msg: String?) {
+    public static func showInfoMsg(_ msg: String?) {
         showWithStatus(hudStatus: .info, text: msg, progress: 0)
     }
 
     /// 错误 带X的图片
-    static func showFailure(_ msg: String?, toView: UIView?) {
+    public static func showFailure(_ msg: String?, toView: UIView?) {
         showWithStatus(hudStatus: DCProgressHUDStatus.error, text: msg, progress: 0)
     }
 
     /// 带图片 成功
-    static func showSuccessWith(_ msg: String?, toView: UIView?) {
+    public static func showSuccessWith(_ msg: String?, toView: UIView?) {
         showWithStatus(hudStatus: DCProgressHUDStatus.success, text: msg, progress: 0)
     }
 
     /// 显示加载
-    static func showLoading(_ msg: String? = nil) {
+    public static func showLoading(_ msg: String? = nil) {
         showWithStatus(hudStatus: .waitting, text: msg, progress: 0)
     }
 
     /// 显示进度
-    static func showProgress(_ msg: String?, progress: CGFloat) {
+    public static func showProgress(_ msg: String?, progress: CGFloat) {
         showWithStatus(hudStatus: .progress, text: msg, progress: progress)
     }
 
-    static func hideNow() {
+    public static func hideNow() {
         SVProgressHUD.dismiss()
     }
 
-    static func showWithStatus(hudStatus status: DCProgressHUDStatus, text msg: String?, progress: CGFloat) {
+    public static func showWithStatus(hudStatus status: DCProgressHUDStatus, text msg: String?, progress: CGFloat) {
         let path = Bundle.main.path(forResource: "MyProgressBundle", ofType: "bundle")
         SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
         switch status {

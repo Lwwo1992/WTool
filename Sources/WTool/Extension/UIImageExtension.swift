@@ -11,7 +11,7 @@ import UIKit
 
 extension UIImage {
     /// 修行图片的透明度
-    func changeImageOpacity(opacity: CGFloat) -> UIImage? {
+    public func changeImageOpacity(opacity: CGFloat) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         draw(in: rect, blendMode: .normal, alpha: opacity)

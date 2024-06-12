@@ -21,7 +21,7 @@ public extension UIColor {
         self.init(red: (hex >> 16) & 0xFF, green: (hex >> 8) & 0xFF, blue: hex & 0xFF, a: alpha)
     }
 
-    static var random: UIColor {
+    public static var random: UIColor {
         return UIColor(red: CGFloat.random(in: 0 ... 1),
                        green: CGFloat.random(in: 0 ... 1),
                        blue: CGFloat.random(in: 0 ... 1),

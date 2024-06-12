@@ -10,14 +10,14 @@ import UIKit
 
 extension UIView {
     /// 获取 UIView 字符串
-    static var describing: String {
+    public static var describing: String {
         String(describing: Self.self)
     }
 }
 
 extension UIView {
     /// 给所有 UIView 添加点击事件
-    func addTapGestureRecognizer(action: ((UITapGestureRecognizer) -> Void)?) {
+    public func addTapGestureRecognizer(action: ((UITapGestureRecognizer) -> Void)?) {
         isUserInteractionEnabled = true
         let tapGestureRecognizer = BlockTapGestureRecognizer(action: action)
         addGestureRecognizer(tapGestureRecognizer)
@@ -42,7 +42,7 @@ class BlockTapGestureRecognizer: UITapGestureRecognizer {
 
 extension UIView {
     /// UIView 每个角指定不同的原价 并且设置边框和颜色
-    func setCornerRadius(topLeft: CGFloat = 0, topRight: CGFloat = 0, bottomLeft: CGFloat = 0, bottomRight: CGFloat = 0, borderWidth: CGFloat = 0, borderColor: UIColor = .clear) {
+    public func setCornerRadius(topLeft: CGFloat = 0, topRight: CGFloat = 0, bottomLeft: CGFloat = 0, bottomRight: CGFloat = 0, borderWidth: CGFloat = 0, borderColor: UIColor = .clear) {
         let path = UIBezierPath()
 
         path.move(to: CGPoint(x: bounds.minX + topLeft, y: bounds.minY))
