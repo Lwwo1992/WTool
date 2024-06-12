@@ -2,7 +2,7 @@
 import UIKit
 import SVProgressHUD
 
-enum DCProgressHUDStatus {
+public enum DCProgressHUDStatus {
     /// 成功
     case success
     /// 失败
