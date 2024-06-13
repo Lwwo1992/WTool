@@ -7,11 +7,19 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 extension UIView {
     /// 获取 UIView 字符串
     public static var describing: String {
         String(describing: Self.self)
+    }
+}
+
+public extension UIView {
+    func addSubview(_ view: UIView, constraints: (ConstraintMaker) -> Void) {
+        addSubview(view)
+        view.snp.makeConstraints(constraints)
     }
 }
 

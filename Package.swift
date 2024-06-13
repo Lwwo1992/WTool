@@ -5,8 +5,11 @@ import PackageDescription
 
 let package = Package(
     name: "WTool",
+    defaultLocalization: "zh-Hans",
+    platforms: [
+        .iOS(.v14),
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "WTool",
             targets: ["WTool"]),
@@ -14,16 +17,21 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/Xiaoye220/EmptyDataSet-Swift.git", .upToNextMajor(from: "5.0.0")),
         .package(url: "https://github.com/SVProgressHUD/SVProgressHUD.git", .upToNextMajor(from: "2.3.0")),
-//        .package(path: "/Volumes/OLD/GitHub/SVProgressHUD"),
-//        .package(path: "/Volumes/OLD/GitHub/EmptyDataSet-Swift"),
+        .package(url: "https://github.com/SnapKit/SnapKit.git",
+            .upToNextMajor(from: "5.0.1")),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "WTool",
-        dependencies: 
-                ["EmptyDataSet-Swift", "SVProgressHUD"]),
+            dependencies:[
+            "EmptyDataSet-Swift",
+            "SVProgressHUD",
+            "SnapKit",
+            ],
+            swiftSettings: [
+                .define("SWIFT_PACKAGE")
+            ]
+        ),
         .testTarget(
             name: "WToolTests",
             dependencies: ["WTool"]),
