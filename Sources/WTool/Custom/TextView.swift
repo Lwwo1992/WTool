@@ -52,7 +52,7 @@ public class TextView: UITextView {
     private func configure() {
         addSubview(placeholderLabel)
         placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
-        placeholderLabel.textColor = UIColor(hex: 0x323232, alpha: 0.2)
+        placeholderLabel.textColor = UIColor.gray.withAlphaComponent(0.2)
         placeholderLabel.numberOfLines = 0
         placeholderLabel.font = UIFont.systemFont(ofSize: 14)
         placeholderLabel.isHidden = !text.isEmpty

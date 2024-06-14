@@ -92,7 +92,7 @@ public class Button: UIButton {
 }
 
 extension UIButton {
-    func setHitAreaEdgeInsets(_ edgeInsets: UIEdgeInsets) {
+    public func setHitAreaEdgeInsets(_ edgeInsets: UIEdgeInsets) {
         let hitArea = UIEdgeInsets(top: -edgeInsets.top, left: -edgeInsets.left, bottom: -edgeInsets.bottom, right: -edgeInsets.right)
         let buttonBounds = bounds
         let extendedBounds = buttonBounds.inset(by: hitArea)

@@ -11,7 +11,7 @@ import UIKit
 
 extension CALayer {
     /// 设置阴影
-    public func setShadow(color: UIColor? = .init(hex: 0x000000, alpha: 0.05),
+    public func setShadow(color: UIColor? = UIColor.black,
                    shadowOpacity: CGFloat = 1,
                    x: CGFloat = 0, y: CGFloat = -1,
                    shadowRadius: CGFloat = 8) {
