@@ -17,8 +17,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/Xiaoye220/EmptyDataSet-Swift.git", .upToNextMajor(from: "5.0.0")),
         .package(url: "https://github.com/SVProgressHUD/SVProgressHUD.git", .upToNextMajor(from: "2.3.0")),
-        .package(url: "https://github.com/SnapKit/SnapKit.git",
-            .upToNextMajor(from: "5.0.1")),
+        .package(url: "https://github.com/SnapKit/SnapKit.git",.upToNextMajor(from: "5.0.1")),
     ],
     targets: [
         .target(

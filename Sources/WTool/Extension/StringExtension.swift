@@ -5,7 +5,7 @@
 //  Created by Lww on 2024/6/14.
 //
 
-import Foundation
+import UIKit
 
 public extension String {
     /// 计算字体内容宽度

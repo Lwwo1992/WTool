@@ -24,7 +24,7 @@ public class TextView: UITextView {
 
     private let placeholderLabel = UILabel()
 
-    var placeholder: String? {
+    public var placeholder: String? {
         get {
             return placeholderLabel.text
         }
@@ -36,7 +36,7 @@ public class TextView: UITextView {
 
     weak var myDelegate: TextViewDelegate?
 
-    init() {
+    public init() {
         super.init(frame: .zero, textContainer: nil)
         configure()
     }
