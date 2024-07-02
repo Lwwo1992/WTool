@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import UIKit
 import SnapKit
+import UIKit
 
 extension UIView {
     /// 获取 UIView 字符串
@@ -17,9 +17,24 @@ extension UIView {
 }
 
 public extension UIView {
-    func addSubview(_ view: UIView, constraints: (ConstraintMaker) -> Void) {
-        addSubview(view)
-        view.snp.makeConstraints(constraints)
+    public var safeAreaTop: ConstraintItem {
+        return safeAreaLayoutGuide.snp.top
+    }
+
+    public var safeAreaBottom: ConstraintItem {
+        return safeAreaLayoutGuide.snp.bottom
+    }
+
+    public var safeTop: CGFloat {
+        return safeAreaLayoutGuide.layoutFrame.minY
+    }
+
+    public var safeBottom: CGFloat {
+        return frame.size.height - safeTop - safeAreaLayoutGuide.layoutFrame.height
+    }
+
+    public var safeAreaHeight: CGFloat {
+        return frame.size.height - safeTop - safeBottom
     }
 }
 
