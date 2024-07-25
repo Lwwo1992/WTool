@@ -34,4 +34,49 @@ public extension String {
         let height = ceil(boundingRect.height)
         return height
     }
+
+    public func firstCharacter() -> String {
+        String(prefix(1))
+    }
+
+    /// 将字符串转换为图片
+    /// - Parameters:
+    ///   - font: 用于绘制文本的字体
+    ///   - size: 图片的大小
+    /// - Returns: 包含文本的 UIImage
+    public func image(font: UIFont, size: CGSize) -> UIImage? {
+        // 创建一个绘制上下文
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+
+        // 确保绘制上下文存在
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+
+        // 设置文本属性
+        let textStyle = NSMutableParagraphStyle()
+        textStyle.alignment = .center
+
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: font,
+            .paragraphStyle: textStyle,
+            .foregroundColor: UIColor.black,
+        ]
+
+        // 计算文本的大小
+        let textSize = (self as NSString).size(withAttributes: attributes)
+        let textRect = CGRect(
+            x: (size.width - textSize.width) / 2,
+            y: (size.height - textSize.height) / 2,
+            width: textSize.width,
+            height: textSize.height
+        )
+
+        // 绘制文本
+        (self as NSString).draw(in: textRect, withAttributes: attributes)
+
+        // 获取绘制的图片
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image
+    }
 }
