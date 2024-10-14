@@ -92,4 +92,142 @@ extension UIView {
             layer.addSublayer(borderLayer)
         }
     }
+
+    /// 指定边框位置
+    public func addBorder(to side: UIRectEdge, color: UIColor, thickness: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+
+        switch side {
+        case .top:
+            border.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: thickness)
+        case .bottom:
+            border.frame = CGRect(x: 0, y: frame.size.height - thickness, width: frame.size.width, height: thickness)
+        case .left:
+            border.frame = CGRect(x: 0, y: 0, width: thickness, height: frame.size.height)
+        case .right:
+            border.frame = CGRect(x: frame.size.width - thickness, y: 0, width: thickness, height: frame.size.height)
+        default:
+            break
+        }
+
+        layer.addSublayer(border)
+    }
+}
+
+public extension UIView {
+    var xValue: CGFloat {
+        get {
+            return frame.origin.x
+        }
+        set {
+            var frame = self.frame
+            frame.origin.x = newValue
+            self.frame = frame
+        }
+    }
+
+    var yValue: CGFloat {
+        get {
+            return frame.origin.y
+        }
+        set {
+            var frame = self.frame
+            frame.origin.y = newValue
+            self.frame = frame
+        }
+    }
+
+    var left: CGFloat {
+        get {
+            return frame.origin.x
+        }
+        set {
+            frame = CGRect(x: newValue, y: top, width: width, height: height)
+        }
+    }
+
+    var top: CGFloat {
+        get {
+            return frame.origin.y
+        }
+        set {
+            frame = CGRect(x: left, y: newValue, width: width, height: height)
+        }
+    }
+
+    var right: CGFloat {
+        get {
+            return left + width
+        }
+        set {
+            frame = CGRect(x: newValue - width, y: top, width: width, height: height)
+        }
+    }
+
+    var bottom: CGFloat {
+        get {
+            return top + height
+        }
+        set {
+            frame = CGRect(x: left, y: newValue - height, width: width, height: height)
+        }
+    }
+
+    var centerX: CGFloat {
+        get {
+            return center.x
+        }
+        set {
+            var center = self.center
+            center.x = newValue
+            self.center = center
+        }
+    }
+
+    var centerY: CGFloat {
+        get {
+            return center.y
+        }
+        set {
+            var center = self.center
+            center.y = newValue
+            self.center = center
+        }
+    }
+
+    var width: CGFloat {
+        get {
+            return bounds.size.width
+        }
+        set {
+            frame.size = CGSize(width: newValue, height: frame.height)
+        }
+    }
+
+    var height: CGFloat {
+        get {
+            return bounds.size.height
+        }
+        set {
+            frame = CGRect(origin: frame.origin, size: CGSize(width: width, height: newValue))
+        }
+    }
+
+    var halfWidth: CGFloat {
+        return width / 2
+    }
+
+    var halfHeight: CGFloat {
+        return height / 2
+    }
+
+    var size: CGSize {
+        get {
+            return frame.size
+        }
+        set {
+            frame.size = newValue
+        }
+    }
 }
