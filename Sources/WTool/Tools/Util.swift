@@ -69,21 +69,46 @@ public class Util {
     /// 屏幕高度，跟横竖屏无关
     @available(iOSApplicationExtension, unavailable)
     public static let deviceHeight = isLandscape ? UIScreen.main.bounds.width : UIScreen.main.bounds.height
+
+    /// 安全区
+    @available(iOSApplicationExtension, unavailable)
+    public static var safeAreaInsets: UIEdgeInsets {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+            let keyWindow: UIWindow?
+
+            if #available(iOS 13.0, *), let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                keyWindow = windowScene.windows.first(where: { $0.isKeyWindow })
+            } else {
+                keyWindow = UIApplication.shared.delegate?.window ?? nil
+            }
+
+            if let safeAreaInsets = keyWindow?.safeAreaInsets {
+                return safeAreaInsets
+            }
+        }
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
 }
 
 public extension Util {
     /// 验证手机号码
     public static func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
-        let phoneRegex = "^[0-9]{10}$" // 这是一个简单的正则表达式，只匹配10位数字（你可以根据需要进行调整）
-        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
-        return phoneTest.evaluate(with: phoneNumber)
+        if phoneNumber.count == 0 {
+            return false
+        }
+        let phoneRegex = "^1[3-9]\\d{9}$"
+        let phonePredicate = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        return phonePredicate.evaluate(with: phoneNumber)
     }
 
     /// 验证邮箱地址
     public static func isValidEmail(_ email: String) -> Bool {
+        if email.count == 0 {
+            return false
+        }
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let emailTest: NSPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
-        return !emailTest.evaluate(with: email)
+        return emailTest.evaluate(with: email)
     }
 }
 
@@ -93,4 +118,16 @@ public extension Util {
         return (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? ""
     }
 
+    /// 返回本地化的app名称
+    static func appName() -> String {
+        if let appName = Bundle.main.localizedInfoDictionary?["CFBundleDisplayName"] as? String {
+            return appName
+        } else if let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String {
+            return appName
+        } else if let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String {
+            return appName
+        } else {
+            return ""
+        }
+    }
 }
